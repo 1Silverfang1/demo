@@ -1,10 +1,6 @@
 package com.redbus.backend_redbus.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class SeatFare {
@@ -14,12 +10,31 @@ public class SeatFare {
     private String seatName;
     private int seatPrice;
     private String seatType;
-    private String seatWindow;
-    public String getSeatWindow() {
-        return seatWindow;
+    private String isWindowSeat;
+    private String isBooked;
+    private String bookingGender;
+
+    public String getIsBooked() {
+        return isBooked;
     }
-    public void setSeatWindow(String seatWindow) {
-        this.seatWindow = seatWindow;
+
+    public void setIsBooked(String isBooked) {
+        this.isBooked = isBooked;
+    }
+
+    public String getBookingGender() {
+        return bookingGender;
+    }
+
+    public void setBookingGender(String bookingGender) {
+        this.bookingGender = bookingGender;
+    }
+
+    public String getIsWindowSeat() {
+        return isWindowSeat;
+    }
+    public void setIsWindowSeat(String isWindowSeat) {
+        this.isWindowSeat = isWindowSeat;
     }
 
     public String getSeatType() {

@@ -3,6 +3,7 @@ package com.redbus.backend_redbus.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,15 +12,6 @@ public class BusTicket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private HashMap<String, List<String>> ticketDetails;
-
-    public HashMap<String, List<String>> getTicketDetails() {
-        return ticketDetails;
-    }
-
-    public void setTicketDetails(HashMap<String, List<String>> ticketDetails) {
-        this.ticketDetails = ticketDetails;
-    }
 
     @JsonIgnore
     @OneToOne

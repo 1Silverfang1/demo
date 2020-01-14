@@ -1,9 +1,12 @@
 package com.redbus.backend_redbus;
 
+import com.redbus.backend_redbus.model.BusTicket;
 import com.redbus.backend_redbus.model.RouteTable;
+import com.redbus.backend_redbus.model.SeatFare;
 import com.redbus.backend_redbus.model.Timing;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -12,11 +15,19 @@ import java.util.List;
 public class ResponseBody {
     private String busName;
     private String busNumber;
-    private HashMap<String,List<String>> busTickets;
     private String busDriver;
     private String busType;
     private String duration;
     private String startingPrice;
+    private List<SeatFare> seatFareList= new ArrayList<>();
+
+    public List<SeatFare> getSeatFareList() {
+        return seatFareList;
+    }
+
+    public void setSeatFareList(List<SeatFare> seatFareList) {
+        this.seatFareList = seatFareList;
+    }
 
     public String getDuration() {
         return duration;
@@ -78,13 +89,6 @@ public class ResponseBody {
         this.busNumber = busNumber;
     }
 
-    public HashMap<String, List<String>> getBusTickets() {
-        return busTickets;
-    }
-
-    public void setBusTickets(HashMap<String, List<String>> busTickets) {
-        this.busTickets = busTickets;
-    }
 
     public String getBusDriver() {
         return busDriver;
