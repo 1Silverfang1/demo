@@ -1,5 +1,7 @@
 package com.redbus.backend_redbus.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +18,7 @@ public class BusDriver {
     public void setBusId(Bus busId) {
         this.busId = busId;
     }
-
+    @JsonIgnore
     @OneToOne
     private Bus busId;
     public String getDriverName() {

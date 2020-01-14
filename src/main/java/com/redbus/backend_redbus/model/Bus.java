@@ -1,5 +1,7 @@
 package com.redbus.backend_redbus.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,17 +13,19 @@ public class Bus {
     private int id;
     private String busName;
     private String busNumber;
-    @ManyToMany
-    private List<Location> locationList= new ArrayList<>();
-    @ManyToMany
-    private List<SeatFare> seatFaresList = new ArrayList<>();
-    public List<Location> getLocationList() {
-        return locationList;
+    @OneToOne
+    private BusTicket busTicket;
+
+    public BusTicket getBusTicket() {
+        return busTicket;
     }
 
-    public void setLocationList(List<Location> locationList) {
-        this.locationList = locationList;
+    public void setBusTicket(BusTicket busTicket) {
+        this.busTicket = busTicket;
     }
+
+    @ManyToMany
+    private List<SeatFare> seatFaresList = new ArrayList<>();
 
     public Timing getBusTiming() {
         return busTiming;
@@ -33,16 +37,6 @@ public class Bus {
 
     @OneToOne(mappedBy = "busTimingId")
     private Timing busTiming;
-    public Seat getSeat() {
-        return seat;
-    }
-
-    public void setSeat(Seat seat) {
-        this.seat = seat;
-    }
-
-    @OneToOne
-    private Seat seat;
     public BusDriver getBusDriver() {
         return busDriver;
     }
@@ -61,6 +55,7 @@ public class Bus {
 
     @OneToOne(mappedBy = "busTypeId")
     private BusType busType;
+
     @OneToOne(mappedBy = "busId")
     private BusDriver busDriver;
     public int getId() {

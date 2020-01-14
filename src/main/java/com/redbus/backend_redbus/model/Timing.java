@@ -1,6 +1,8 @@
 package com.redbus.backend_redbus.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,6 +15,7 @@ public class Timing {
     private Date arrivalTime;
     private String finalSource;
     private String finalDestination;
+    @JsonIgnore
     @OneToOne
     private Bus busTimingId;
 

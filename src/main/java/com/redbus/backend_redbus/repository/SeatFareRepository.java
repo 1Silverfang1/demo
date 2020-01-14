@@ -1,6 +1,5 @@
 package com.redbus.backend_redbus.repository;
 
-import com.redbus.backend_redbus.model.Seat;
 import com.redbus.backend_redbus.model.SeatFare;
 import org.springframework.data.jpa.repository.JpaRepository;
 

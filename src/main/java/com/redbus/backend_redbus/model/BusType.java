@@ -1,5 +1,7 @@
 package com.redbus.backend_redbus.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,6 +11,7 @@ public class BusType {
     private int id;
     private String busType;
     private int busFactor;
+    @JsonIgnore
     @OneToOne
     private Bus busTypeId;
 

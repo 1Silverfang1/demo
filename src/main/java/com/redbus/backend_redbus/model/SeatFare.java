@@ -1,5 +1,7 @@
 package com.redbus.backend_redbus.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,19 +13,15 @@ public class SeatFare {
     private int id;
     private String seatName;
     private int seatPrice;
-    private boolean isBooked;
     private String seatType;
-
-    public List<Bus> getBusFare() {
-        return busFare;
+    private String seatWindow;
+    public String getSeatWindow() {
+        return seatWindow;
+    }
+    public void setSeatWindow(String seatWindow) {
+        this.seatWindow = seatWindow;
     }
 
-    public void setBusFare(List<Bus> busFare) {
-        this.busFare = busFare;
-    }
-
-    @ManyToMany
-    private List<Bus> busFare = new ArrayList<>();
     public String getSeatType() {
         return seatType;
     }
@@ -56,11 +54,4 @@ public class SeatFare {
         this.seatPrice = seatPrice;
     }
 
-    public boolean isBooked() {
-        return isBooked;
-    }
-
-    public void setBooked(boolean booked) {
-        isBooked = booked;
-    }
 }
